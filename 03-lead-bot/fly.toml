@@ -1,0 +1,17 @@
+# имя приложения замените на своё: fly apps create <имя>
+app = "lead-bot-demo"
+primary_region = "ams"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
+
+[mounts]
+  source = "leads_data"
+  destination = "/data"
+
+[env]
+  DB_PATH = "/data/leads.db"
